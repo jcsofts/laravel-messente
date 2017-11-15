@@ -1,0 +1,38 @@
+{
+    "name": "jcsofts/laravel-messente",
+    "description": "the laravel package for messagete",
+    "type": "library",
+    "license": "MIT",
+    "keywords": [
+        "Messente",
+        "Laravel"
+    ],
+    "authors": [
+        {
+            "name": "lee",
+            "email": "jcsoft@aliyun.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.0.0",
+        "guzzlehttp/guzzle": "~5.3|~6.2"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~5.7"
+    },
+    "autoload": {
+        "psr-4": {
+            "Jcsofts\\LaravelMessente\\": "packages/jcsofts/laravel-messente/src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Jcsofts\\LaravelMessente\\MessenteServiceProvider"
+            ],
+            "aliases": {
+                "Messente": "Jcsofts\\LaravelMessente\\Facade\\Messente"
+            }
+        }
+    }
+}
