@@ -115,6 +115,7 @@ Then update `config/messente.php` with your credentials. Alternatively, you can 
 ```dotenv
 MESSENTE_API_USERNAME=API Username
 MESSENTE_API_PASSWORD=API Password
+MESSENTE_SENDER=
 ```
 
 Usage

@@ -7,5 +7,6 @@
  */
 return [
     'api_username'=>env('MESSENTE_API_USERNAME',''),
-    'api_password'=>env('MESSENTE_API_PASSWORD','')
+    'api_password'=>env('MESSENTE_API_PASSWORD',''),
+    'sender'=>env('MESSENTE_SENDER','default')
 ];

@@ -42,18 +42,23 @@ class Messente
      *
      * @var bool
      */
+
+    private $sender;
+
     private $useBackupApi = false;
     /**
      * Class constructor.
      *
      * @param string $username
      * @param string $password
+     * @param string $sender
      */
-    public function __construct(string $username, string $password)
+    public function __construct(string $username, string $password, string $sender)
     {
         $this->client = new Client();
         $this->username = $username;
         $this->password = $password;
+        $this->sender=$sender;
     }
     /**
      * Sets whether to use the backup API.
@@ -105,6 +110,8 @@ class Messente
         ];
         if ($from !== null) {
             $parameters['from'] = $from;
+        }elseif(!empty($this->sender)){
+            $parameters['from']=$this->sender;
         }
         $url = $this->getApiUrl(self::SEND_SMS_ENDPOINT);
         $response = $this->client->post($url, [
