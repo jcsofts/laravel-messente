@@ -60,7 +60,7 @@ class MessenteServiceProvider extends ServiceProvider
         }
 
 
-        return new Messente($config->get('messente.api_username'), $config->get('messente.api_password'));
+        return new Messente($config->get('messente.api_username'), $config->get('messente.api_password'), $config->get('messente.sender'));
 
     }
 
