@@ -102,6 +102,10 @@ class Messente
      */
     public function send(string $text, string $to, string $from = null) : string
     {
+        $to=$this->formatPhoneNumber($to);
+        if(!$to){
+            throw new \Exception("Invalid phone number");
+        }
         $parameters = [
             'username' => $this->username,
             'password' => $this->password,
@@ -160,5 +164,16 @@ class Messente
             return $value;
         }
         throw MessenteException::forErrorCode($code);
+    }
+
+    private function formatPhoneNumber($number){
+        $number = ltrim($number, '+');
+        $number = ltrim($number, '0');
+        $number = preg_replace('/[^0-9]/', '',$number);
+
+        // Are only numbers left?
+        if (!is_numeric($number)) return false;
+
+        return $number;
     }
 }
